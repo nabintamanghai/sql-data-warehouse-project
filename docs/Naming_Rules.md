@@ -16,7 +16,7 @@ This document outlines the naming rules for schemas, tables, views, columns, and
 
 ## General Principles
 
-- **Naming**: Use snake_case (lowercase letters and underscores).
+- **Naming**: Use snake_case (lowercase letters and underscores(`_`) to seperate words).
 - **Language**: English.
 - **Reserved Words**: Avoid SQL Keywords.
 
@@ -24,51 +24,57 @@ This document outlines the naming rules for schemas, tables, views, columns, and
 
 ### Bronze Rules
 
-- Name starts with the source system followed by the original table name.
-- `<sourcesystem>*<entity>`
-  - `<sourcesystem>`: Source system name (e.g. crm, erp).
-  - `<entity>`: Original table Name.
-- **Example**: crm\*customer_info.
+- Names must start with the source system followed by the original table name.
+- `<sourcesystem>_<entity>`
+  - `<sourcesystem>`: Source system name (e.g. `crm`, `erp`).
+  - `<entity>`: Original table Name from the source system.
+- **Example**:
+- `crm_customer_info`: Customer information from the CRM system.
 
 ### Silver Rules
 
 - Same as Bronze rules.
-- `<sourcesystem>*<entity>`
-- **Example**: crm\*customer_info.
+- `<sourcesystem>_<entity>`
+- **Example**:
+- `crm_customer_info`.: Customer information from the CRM system.
 
 ### Gold Rules
 
 - Use business-aligned names with category prefixes.
-- `<category>*<entity>`
-  - `<category>`: Table type (e.g. dim, fact).
-  - `<entity>`: Descriptive business name.
-- **Example**: dim\*customers, fact_sales.
+- `<category>_<entity>`
+  - `<category>`: Table type (e.g. `dim`, `fact`).
+  - `<entity>`: Descriptive business name (e.g. `customers`, `products`, `sales`).
+- **Example**:
+- `dim_customers`: Dimension table for customer data.
+- `fact_sales`: Fact table containing sales transactions. 
 
 #### Category Glossary
 
-| Pattern  | Meaning         | Example(s)                 |
+| Pattern  | Meaning         | Example                |
 | -------- | --------------- | -------------------------- |
-| dim\*    | Dimension table | dim\*customer, dim_product |
-| fact\*   | Fact table      | fact\*sales                |
-| report\* | Report table    | report\*sales_monthly      |
+| `dim_`    | Dimension table | `dim_customer, dim_product` |
+| `fact_`  | Fact table      | `fact_sales`              |
+| `report_` | Report table    | `report_sales_monthly`      |
 
 ## Column Naming Rules
 
 ### Surrogate Keys
 
-- Primary keys in dimension tables end with `_key`.
+- All Primary keys in dimension tables end with `_key`.
 - `<table_name>_key`
-- **Example**: customer_key.
+- `<table_name>` name of the table the key belongs to.
+- `_key`: A suffix indicating that this column is a surrogate key.
+- **Example**: `customer_key`.
 
 ### Technical Columns
-
-- Prefix with `dwh*` for system-generated metadata.
-- `dwh*<column_name>`
-- **Example**: dwh_load_date.
+- `dwh_<column_name>`
+- Prefix with `dwh_` for system-generated metadata.
+- `<column_name>` column name should indicate the column's purpose
+- **Example**: `dwh_load_date`
 
 ## Stored Procedure
 
 - Naming pattern for loading data:
-  - `load*<layer>`
+  - `load_<layer>`
     - `<layer>`: Data layer (e.g. bronze, silver, gold).
-- **Example**: load_bronze, load_silver.
+- **Example**: `<load_bronze>`, `<load_silver>`.
