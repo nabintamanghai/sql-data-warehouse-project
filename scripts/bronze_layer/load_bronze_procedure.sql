@@ -28,10 +28,10 @@ BEGIN
 		PRINT'---------------------------------------';
 
 		SET @start_time = GETDATE();
-		PRINT'--> TRUNCATING TABLE: bronze.crm_customer_info';
+		PRINT'TRUNCATING TABLE: bronze.crm_customer_info';
 		TRUNCATE TABLE bronze.crm_customer_info;
 
-		PRINT'--> INSERTING DATA INTO: bronze.crm_customer_info';
+		PRINT'INSERTING DATA INTO: bronze.crm_customer_info';
 		BULK INSERT bronze.crm_customer_info
 		FROM 'C:\SQL2022\datasets\source_crm\customer_info.csv'
 		WITH (
@@ -41,15 +41,15 @@ BEGIN
 		);
 		SET @end_time = GETDATE();
 		SET @DurationInSeconds = DATEDIFF(SECOND, @start_time, @end_time);
-		PRINT'-> Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' second'
+		PRINT'Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' seconds';
 		PRINT'---------------------------------------';
 
 
 		SET @start_time = GETDATE();
-		PRINT'--> TRUNCATING TABLE: bronze.crm_product_info';
+		PRINT'TRUNCATING TABLE: bronze.crm_product_info';
 		TRUNCATE TABLE bronze.crm_product_info;
 
-		PRINT'--> INSERTING DATA INTO: bronze.crm_product_info';
+		PRINT'INSERTING DATA INTO: bronze.crm_product_info';
 		BULK INSERT bronze.crm_product_info
 		FROM 'C:\SQL2022\datasets\source_crm\product_info.csv'
 		WITH (
@@ -59,15 +59,15 @@ BEGIN
 		);
 		SET @end_time = GETDATE();
 		SET @DurationInSeconds = DATEDIFF(SECOND, @start_time, @end_time);
-		PRINT'-> Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' second';
+		PRINT'-> Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' seconds';
 		PRINT'---------------------------------------';
 
 
 		SET @start_time = GETDATE();
-		PRINT'--> TRUNCATING TABLE: bronze.crm_sales_details';
+		PRINT'TRUNCATING TABLE: bronze.crm_sales_details';
 		TRUNCATE TABLE bronze.crm_sales_details;
 
-		PRINT'--> INSERTING DATA INTO: bronze.crm_sales_details';
+		PRINT'INSERTING DATA INTO: bronze.crm_sales_details';
 		BULK INSERT bronze.crm_sales_details
 		FROM 'C:\SQL2022\datasets\source_crm\sales_details.csv'
 		WITH (
@@ -77,20 +77,21 @@ BEGIN
 		);
 		SET @end_time = GETDATE();
 		SET @DurationInSeconds = DATEDIFF(SECOND, @start_time, @end_time);
-		PRINT'-> Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' second'
+		PRINT'Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' seconds';
 
+		SET @BatchEndTime = GETDATE();
+		SET @DurationInSeconds = DATEDIFF(SECOND, @BatchStartTime, @BatchEndTime);
+		
 
-		PRINT''
 		PRINT'---------------------------------------';
 		PRINT'LOADING ERP TABLES';
 		PRINT'---------------------------------------';
 
-
 		SET @start_time = GETDATE();
-		PRINT'--> TRUNCATING TABLE: bronze.erp_cust_az12';
+		PRINT'TRUNCATING TABLE: bronze.erp_cust_az12';
 		TRUNCATE TABLE bronze.erp_cust_az12;
  
-		PRINT'--> INSERTING DATA INTO: bronze.erp_cust_az12';
+		PRINT'INSERTING DATA INTO: bronze.erp_cust_az12';
 		BULK INSERT bronze.erp_cust_az12
 		FROM 'C:\SQL2022\datasets\source_erp\CUST_AZ12.csv'
 		WITH (
@@ -100,15 +101,15 @@ BEGIN
 		);
 		SET @end_time = GETDATE();
 		SET @DurationInSeconds = DATEDIFF(SECOND, @start_time, @end_time);
-		PRINT'-> Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' second';
+		PRINT'Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' seconds';
 		PRINT'---------------------------------------';
 
 
 		SET @start_time = GETDATE();
-		PRINT'--> TRUNCATING TABLE: bronze.erp_loc_a101';
+		PRINT'TRUNCATING TABLE: bronze.erp_loc_a101';
 		TRUNCATE TABLE bronze.erp_loc_a101;
 
-		PRINT'--> INSERTING DATA INTO: bronze.erp_loc_a101';
+		PRINT'INSERTING DATA INTO: bronze.erp_loc_a101';
 		BULK INSERT bronze.erp_loc_a101
 		FROM 'C:\SQL2022\datasets\source_erp\LOC_A101.csv'
 		WITH (
@@ -118,14 +119,14 @@ BEGIN
 		);
 		SET @end_time = GETDATE();
 		SET @DurationInSeconds = DATEDIFF(SECOND, @start_time, @end_time);
-		PRINT'-> Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' second';
+		PRINT'Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' seconds';
 		PRINT'---------------------------------------';
 
 		SET @start_time = GETDATE();
-		PRINT'--> TRUNCATING TABLE: bronze.erp_px_cat_g1v2';
+		PRINT'TRUNCATING TABLE: bronze.erp_px_cat_g1v2';
 		TRUNCATE TABLE bronze.erp_px_cat_g1v2;
 
-		PRINT'--> INSERTING DATA INTO: bronze.erp_px_cat_g1v2';
+		PRINT'INSERTING DATA INTO: bronze.erp_px_cat_g1v2';
 		BULK INSERT bronze.erp_px_cat_g1v2
 		FROM 'C:\SQL2022\datasets\source_erp\PX_CAT_G1V2.csv'
 		WITH (
@@ -135,23 +136,23 @@ BEGIN
 		);
 		SET @end_time = GETDATE();
 		SET @DurationInSeconds = DATEDIFF(SECOND, @start_time, @end_time);
-		PRINT'-> Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' second';
+		PRINT'Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' seconds';
 
 		PRINT'---------------------------------------';
 		SET @BatchEndTime = GETDATE();
 		SET @DurationInSeconds = DATEDIFF(SECOND, @BatchStartTime, @BatchEndTime);
 		PRINT'======================================';
-		PRINT'--> Batch Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' seconds <--';
+		PRINT'--> Batch Load Duration: ' + CAST(@DurationInSeconds AS NVARCHAR(10)) + ' seconds';
 		PRINT'======================================';
 
 	END TRY
 	BEGIN CATCH
 		PRINT'+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+';
-		PRINT'ERROR OCCURED WHILE LOADING BRONZE LAYER'
+		PRINT'ERROR OCCURED WHILE LOADING BRONZE LAYER';
 		PRINT'ERROR MESSAGE' + ERROR_MESSAGE();
-		PRINT'ERROR MESSAGE' + ERROR_NUMBER();
-		PRINT'ERROR MESSAGE' + ERROR_STATE();
-		PRINT'ERROR MESSAGE' + ERROR_LINE();
+		PRINT'ERROR MESSAGE' + CAST(ERROR_NUMBER() AS NVARCHAR);
+		PRINT'ERROR MESSAGE' + CAST(ERROR_STATE() AS NVARCHAR);
+		PRINT'ERROR MESSAGE' + CAST(ERROR_LINE() AS NVARCHAR);
 		PRINT'+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+';
 	END CATCH
 END;
