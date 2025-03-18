@@ -4,8 +4,14 @@ INGESTING DATA INTO SILVER LAYER TABLES
 =========================================
 
 SCRIPT PURPOSE:
-This stored procedure `silver.load_silver` loads data into the silver layer schema of the DataWarehouse.  
-It first truncates existing data in the silver tables and then inserts data from bronze layer tables and 
+This stored procedure executes the ETL (Extract, Transform, Load) process to populate the Silver schema tables 
+from Bronze layer.
+
+Actions Performed:
+Extract: Retrieves raw data from the Bronze tables.
+Transform: Cleanses, deduplicates, and structures the data for analytical use.
+Load: Truncates existing Silver tables and inserts the transformed data.
+This ensures that the Silver schema contains high-quality, structured data for further processing and analysis.
 it also records the duration of each step and handles errors if they occur.
 
 PARAMETERS:
