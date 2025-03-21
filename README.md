@@ -1,18 +1,7 @@
 # Data Warehouse &  Analytics Portfolio Project
 
 Welcome to my **Data Analyst Portfolio** repository!  
-This project is not to showcases my skills in data engineering rather to show my passion for data and data analytics highlighting my journey to become a proficient data analyst. Throughout this repository, you'll find examples of how I approach solving real-world data challenges and how I transform raw data into meaningful insights.
-
----
-## 💡 My Data Journey
-
-As an aspiring data analyst, my focus is on turning raw data into actionable insights that drive business decisions. I’ve been developing a strong foundation in:
-
-- **Data Cleaning and Preprocessing**: Writing complex queries to extract, transform, and analyze data.
-- **Data Visualization**: Creating interactive dashboards using tools like Power BI and Excel.
-- **Business Intelligence**: Developing reports that offer strategic insights to decision-makers.
-
-Throughout this project, I’ve leveraged industry best practices and tools, focusing on creating efficient workflows and scalable data models. 
+This project showcases my passion for data analytics and highlights my journey toward becoming a proficient data analyst. The goal is not to demonstrate skills in data engineering, but to show how I approach solving real-world data challenges and transform raw data into meaningful insights. Throughout this repository, you'll find examples of how I approach solving real-world data challenges and how I transform raw data into meaningful insights. Throughout this project, I’ve leveraged industry best practices and tools, focusing on creating efficient workflows and scalable data models. 
 
 ---
 ## Project Overview
@@ -23,33 +12,29 @@ This project involves the creation of a **data analysis pipeline** where I appli
 1. Bronze Layer: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
 2. Silver Layer: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
 3. Gold Layer: Houses business-ready data modeled into a star schema required for reporting and analytics.
----
-Key objectives:
-1. **Data Collection**: Extracting data from multiple sources (such as ERP, CRM).
-2. **Data Cleaning & Transformation**: Applying SQL to handle missing values, standardize formats, and create new features.
----
-###📖 Project Overview
-This project involves:
 
-Data Architecture: Designing a Modern Data Warehouse Using Medallion Architecture Bronze, Silver and Gold layers.
-ETL Pipelines: Extracting, transforming and loading data from source systems into the warehouse.
-Data Modeling: Developing fact and dimension tables optimized for analytical queries.
-Analytics & Reporting: Creating SQL-based reports and dashboards for actionable insights.
+**Project involves following steps:**
+- Data Architecture: Designing a Modern Data Warehouse Using Medallion Architecture Bronze, Silver and Gold layers.
+- ETL Pipelines: Extracting, transforming and loading data from source systems into the warehouse.
+- Data Modeling: Developing fact and dimension tables optimized for analytical queries.
+- Analytics & Reporting: Creating SQL-based reports and dashboards for actionable insights.
 
 ---
 
-***Business Use Cases***
-🔹Customer Insights: Track customer demographics and purchase behavior. 🔹Product Analysis: Identify top-selling products, pricing trends, and category performance.
-🔹Sales Performance: Analyze revenue, order patterns, and shipping efficiency.
-🔹Market Trends: Understand demand by region.
+**Business Use Cases**
+- Customer Insights: Track customer demographics and purchase behavior. 
+- Product Analysis: Identify top-selling products, pricing trends and category performance.
+- Sales Performance: Analyze revenue, order patterns and shipping efficiency.
+- Market Trends: Understand demand by region.
 
-***Next Steps***
-🔹 Integrate these views with Power BI, Tableau or SQL reporting tools for visual analytics.
-🔹 Implement indexing and performance tuning to optimize query execution.
+**Next Steps**
+- Integrate these views with Power BI, Tableau or SQL reporting tools for visual analytics.
+- Implement indexing and performance tuning to optimize query execution.
 
 
 ---
 ## 📂 Repository Structure
+```
 sql-data-warehouse-project/
 │
 |
@@ -88,3 +73,24 @@ sql-data-warehouse-project/
 ├── README.md                           # Project Overview
 |
 |
+```
+
+---
+
+## How to Use This Project
+
+1. **Clone the repository**:  
+   Clone this repository to your local machine to get started with the project.
+
+2. **Set up SQL Server**:  
+   Install SQL Server and SQL Server Management Studio (SSMS) to manage the database and run SQL scripts.
+
+3. **Load the datasets**:  
+   Import the raw CSV files into SQL Server.
+
+4. **Run the ETL scripts**:  
+   Navigate through the `scripts/bronze`, `scripts/silver`, and `scripts/gold` folders to run the transformation and analytical scripts.
+
+5. **Analyze the results**:  
+   Once the data is cleaned, transformed, and modeled, explore the results through reports and visualizations.
+   
