@@ -4,7 +4,7 @@ GOLD SCHEME VIEW CREATIONS
 ===============================================================================
 
 this query creates a view inside the 'gold' schema and it also checks whether a view with the same 
-name already exists, if it does then it drops it.
+name already exists or not, if it does then it drops it.
 
 Purpose:
     - Represents final dimension and fact tables (Star Schema).
